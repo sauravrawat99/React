@@ -1,7 +1,15 @@
-import React from "react";
+import { useState } from "react";
+import { UserContext } from "./UserContext.js";
 
 const App = () => {
-  return <div className="bg-red-500">App</div>;
-};
+  const [user, setUser] = useState({
+    name: "Saurav",
+    isLoggedIn: true,
+  });
 
-export default App;
+  return (
+    <UserContext.Provider value={{ user, setUser }}>
+      <App />
+    </UserContext.Provider>
+  );
+};
